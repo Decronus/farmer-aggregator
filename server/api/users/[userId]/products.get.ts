@@ -1,4 +1,7 @@
-export default defineEventHandler((event) => {
+import supabase from "../../../../supabase/supabase";
+
+export default defineEventHandler(async (event) => {
     const id = getRouterParam(event, "userId");
-    return ["cherry", "watermelod", "lime", id];
+    const { data } = await supabase.from("products").select().eq("userId", id);
+    return data;
 });

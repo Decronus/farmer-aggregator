@@ -3,18 +3,14 @@ import supabase from "@/supabase/supabase";
 import { getUserProducts, getUsers, getUserById } from "@/api/users";
 // import { ref, onMounted } from "vue";
 
-// const { data } = await getUserProducts(255);
-const { data } = getUserById(7);
-// const { data } = getUsers();
-// const { data } = await useFetch("/api/hello");
+// const { data, error } = await getUserById(7123123);
+// if (error.value) {
+//     logError(error);
+// }
+// console.log("data", data.value);
 
-console.log("data", data.value);
-
-// const { data: supaData, error } = await supabase
-//     .from("users")
-//     .insert({ name: "Alex", surname: "Zotin", email: "zick3333@mail.ru", phone: "79991150041" })
-//     .select();
-// console.log("supadata", supaData);
+const { data } = await getUserProducts(8);
+console.log("products", data.value);
 </script>
 
 <template>
