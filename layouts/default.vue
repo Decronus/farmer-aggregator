@@ -1,6 +1,13 @@
 <template>
     <div class="default-layout">
-        <!-- <NavBar /> -->
+        <TopNavBar />
+        <NavBar />
         <slot />
     </div>
 </template>
+
+<style lang="scss">
+.default-layout {
+    padding: 0 20px;
+}
+</style>
