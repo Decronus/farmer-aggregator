@@ -3,12 +3,6 @@ import supabase from "@/supabase/supabase";
 import { getUserProducts, getUsers, getUserById } from "@/api/users";
 import { ref, onMounted } from "vue";
 
-// const { data, error } = await getUserById(7123123);
-// if (error.value) {
-//     logError(error);
-// }
-// console.log("data", data.value);
-
 interface Product {
     id: number;
     userId: number;
@@ -20,14 +14,19 @@ const products = ref<Product[] | null>(null);
 const { data } = await getUserProducts(7);
 products.value = data.value;
 console.log("products", data.value);
+
+const createProductModalVisibility = ref(false);
 </script>
 
 <template>
     <div class="page-wrap main-page">
         <div class="product-cards-container">
+            <CreateProductCard @click="createProductModalVisibility = true" />
             <ProductCard v-for="product in products" :key="product.id" :product="product" />
         </div>
     </div>
+
+    <CreateProductModal v-model="createProductModalVisibility" />
 </template>
 
 <style lang="scss">
