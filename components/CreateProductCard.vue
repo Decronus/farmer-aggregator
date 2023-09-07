@@ -35,6 +35,6 @@
 
 .create-product-card__text {
     color: #a6a6a6;
-    font-size: 16px;
+    font-size: 14px;
 }
 </style>

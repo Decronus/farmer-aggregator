@@ -2,18 +2,15 @@
 import supabase from "@/supabase/supabase";
 import { getUserProducts, getUsers, getUserById } from "@/api/users";
 import { ref, onMounted } from "vue";
-
-interface Product {
-    id: number;
-    userId: number;
-    name: string;
-    price: string;
-}
+import { Product } from "@/api/users";
 
 const products = ref<Product[] | null>(null);
-const { data } = await getUserProducts(7);
-products.value = data.value;
-console.log("products", data.value);
+try {
+    const { data } = await getUserProducts(7);
+    products.value = data.value;
+} catch (err) {
+    console.error(err);
+}
 
 const createProductModalVisibility = ref(false);
 </script>

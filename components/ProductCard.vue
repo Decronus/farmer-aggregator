@@ -7,7 +7,7 @@ const props = defineProps(["product"]);
         <div class="product-card__image"></div>
         <div class="product-card__text">
             <span class="product-card__name">{{ props.product.name }}</span>
-            <span class="product-card__price">{{ props.product.price }} €</span>
+            <span class="product-card__price">{{ props.product.price }}&nbsp;€</span>
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@ const props = defineProps(["product"]);
 .product-card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;
@@ -45,11 +45,12 @@ const props = defineProps(["product"]);
 }
 
 .product-card__name {
-    font-size: 16px;
+    font-size: 14px;
     max-width: 211px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    flex-grow: 0;
+    /* white-space: nowrap; */
 }
 
 .product-card__price {

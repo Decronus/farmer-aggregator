@@ -1,7 +1,11 @@
-import supabase from "../../../../supabase/supabase";
+import supabase from "@/supabase/supabase";
 
 export default defineEventHandler(async (event) => {
-    const id = getRouterParam(event, "userId");
-    const { data } = await supabase.from("products").select().eq("userId", id);
-    return data;
+    try {
+        const id = getRouterParam(event, "userId");
+        const { data } = await supabase.from("products").select().eq("userId", id);
+        return data;
+    } catch (err) {
+        console.error(err);
+    }
 });
