@@ -27,3 +27,7 @@ export function getUserProducts(userId: number) {
 export function createProduct(userId: number, body: ProductBody): AsyncData<Product, Error | null> {
     return useFetch(`/api/users/${userId}/products`, { method: "POST", body: body });
 }
+
+export function deleteProduct(userId: number, productId: number): AsyncData<Product, Error | null> {
+    return useFetch(`/api/users/${userId}/products/${productId}`, { method: "DELETE" });
+}
