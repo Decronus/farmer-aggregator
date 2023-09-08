@@ -2,6 +2,6 @@
 export default defineNuxtConfig({
     devtools: { enabled: false },
     css: ["~/assets/scss/global.scss", "~/assets/scss/variables.scss", "~/assets/scss/element-ui.scss"],
-    modules: ["@element-plus/nuxt"],
+    modules: ["@element-plus/nuxt", "@pinia/nuxt"],
     components: ["~/components/ui", "~/components"],
 });

@@ -6,7 +6,6 @@ const props = defineProps(["product"]);
 async function handleDeleteProduct(productId: number) {
     try {
         const { data } = await deleteProduct(7, productId);
-        console.log(data);
     } catch (err) {
         console.error(err);
     }
