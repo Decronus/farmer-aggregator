@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref, defineEmits } from "vue";
 import { createProduct } from "@/api/users";
 
 const emit = defineEmits(["updateVisible", "update:modelValue"]);

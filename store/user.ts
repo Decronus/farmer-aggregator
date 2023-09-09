@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 
 interface UserState {
-    id?: number;
+    id: number;
     name?: string;
     email?: string;
 }
 
 export const useUserStore = defineStore("user", {
     state: (): UserState => ({
-        id: 1,
+        id: 0,
         name: undefined,
         email: undefined,
     }),
