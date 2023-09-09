@@ -15,8 +15,7 @@ const form = reactive<Form>({
 
 async function handleReg() {
     const { data } = await reg(form);
-    emit("update:modelValue", false);
-    console.log("data", data.value);
+    if (data.value) emit("update:modelValue", false);
 }
 </script>
 
@@ -26,10 +25,12 @@ async function handleReg() {
             <el-form-item label="Email">
                 <el-input v-model="form.email" autocomplete="off" />
             </el-form-item>
+
             <el-form-item label="Пароль">
                 <el-input v-model="form.password" autocomplete="off" />
             </el-form-item>
         </el-form>
+
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="emit('update:modelValue', false)">Отмена</el-button>

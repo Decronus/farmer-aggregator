@@ -1,25 +1,28 @@
 import { defineStore } from "pinia";
+import { getUser, login } from "@/api/auth";
 
 interface UserState {
-    id: number;
+    id?: string;
     name?: string;
     email?: string;
 }
 
 export const useUserStore = defineStore("user", {
     state: (): UserState => ({
-        id: 0,
+        id: "",
         name: undefined,
         email: undefined,
     }),
 
     getters: {
-        doubleCount: (state): number | undefined => (state?.id ? state.id * 2 : undefined),
+        doubleCount: (state): number | undefined => 1,
     },
 
     actions: {
-        increment() {
-            this.id && this.id++;
+        async actionSetUser() {
+            const { data } = await getUser();
+            this.id = data.value?.identities?.[0].id;
+            this.email = data.value?.email;
         },
     },
 });
