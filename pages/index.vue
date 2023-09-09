@@ -4,13 +4,11 @@ import { getUserProducts, getUsers, getUserById } from "@/api/users";
 import { ref, onMounted } from "vue";
 import { Product } from "@/api/users";
 
+// const userStore = useUserStore();
+
 const products = ref<Product[] | null>(null);
-try {
-    const { data } = await getUserProducts(7);
-    products.value = data.value;
-} catch (err) {
-    console.error(err);
-}
+const { data } = await getUserProducts(7);
+products.value = data.value;
 
 const createProductModalVisibility = ref(false);
 </script>

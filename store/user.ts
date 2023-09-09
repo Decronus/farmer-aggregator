@@ -8,7 +8,7 @@ interface UserState {
 
 export const useUserStore = defineStore("user", {
     state: (): UserState => ({
-        id: undefined,
+        id: 1,
         name: undefined,
         email: undefined,
     }),
