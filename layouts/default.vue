@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+import { getUser } from "@/api/auth";
+
+const { data: userData, error } = await getUser();
+console.log("user", userData.value);
+console.log("user error", error);
+</script>
+
 <template>
     <div class="default-layout">
         <TopNavBar />

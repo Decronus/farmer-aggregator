@@ -5,10 +5,10 @@ import { ref, onMounted } from "vue";
 import { Product } from "@/api/users";
 import { useUserStore } from "@/store/user";
 import { storeToRefs } from "pinia";
+import { getUser } from "@/api/auth";
 
 const userStore = useUserStore();
 const { id } = storeToRefs(userStore);
-console.log("id", id && id.value);
 
 const products = ref<Product[] | null>(null);
 const { data } = await getUserProducts(7);

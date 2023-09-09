@@ -1,8 +1,14 @@
 <script lang="ts" setup>
+import { logout } from "@/api/auth";
 import { ref } from "vue";
 
 const regModalVisibility = ref(false);
 const loginModalVisibility = ref(false);
+
+function handleLogout(): void {
+    logout();
+    console.log("logout");
+}
 </script>
 
 <template>
@@ -10,6 +16,7 @@ const loginModalVisibility = ref(false);
         <div class="top-nav-bar__menu">
             <span @click="regModalVisibility = true">Регистрация</span>
             <span @click="loginModalVisibility = true">Войти</span>
+            <span @click="handleLogout">Выйти</span>
             <span>О проекте</span>
             <span>Поставщики</span>
             <span>Доставка</span>

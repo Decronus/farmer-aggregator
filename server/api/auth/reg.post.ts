@@ -1,6 +1,6 @@
 import supabase from "@/supabase/supabase";
 import { SignUpWithPasswordCredentials } from "@supabase/supabase-js";
-import { createErrorHandler } from "../../utils/functions";
+import { createErrorHandler } from "../../../utils/functions";
 
 export default defineEventHandler(async (event) => {
     const body: SignUpWithPasswordCredentials = await readBody(event);
