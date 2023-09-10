@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { createProduct } from "@/api/users";
+import { useUserStore } from "@/store/user";
 
 const emit = defineEmits(["updateVisible", "update:modelValue"]);
 const props = defineProps(["modelValue"]);
@@ -13,9 +14,11 @@ const form = reactive<Form>({
     price: "",
 });
 
+const userStore = useUserStore();
+
 async function handleCreateProduct() {
     try {
-        const { data } = await createProduct(7, form);
+        const { data } = await createProduct(userStore.id as string, form);
         emit("update:modelValue", false);
         console.log("data", data.value);
     } catch (err) {

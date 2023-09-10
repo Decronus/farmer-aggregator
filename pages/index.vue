@@ -8,10 +8,9 @@ import { storeToRefs } from "pinia";
 import { getUser } from "@/api/auth";
 
 const userStore = useUserStore();
-const { id } = storeToRefs(userStore);
 
 const products = ref<Product[] | null>(null);
-const { data } = await getUserProducts(7);
+const { data } = await getUserProducts(userStore.id as string);
 products.value = data.value;
 
 const createProductModalVisibility = ref(false);

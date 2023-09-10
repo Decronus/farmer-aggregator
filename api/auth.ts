@@ -9,6 +9,10 @@ export function getUser() {
     return useFetch(`/api/auth/current-user`);
 }
 
+export function getSession() {
+    return useFetch(`/api/auth/get-session`);
+}
+
 export function login(body: CredentialsBody): AsyncData<CredentialsBody, Error | null> {
     return useFetch(`/api/auth/login`, { method: "POST", body });
 }
